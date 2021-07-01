@@ -1,0 +1,804 @@
+html {
+    display: block;
+    color: -internal-root-color;
+}
+
+head {
+    display: none;
+}
+
+body {
+    line-height: 24px;
+    font: 14px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
+}
+
+blockquote, body, button, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, input, li, ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+a:active, a:hover {
+    outline: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+button {
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    -webkit-appearance: button;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+    background-color: buttonface;
+    box-sizing: border-box;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 6px;
+}
+
+button, input, optgroup, option, select, textarea {
+    font-weight: inherit;
+    outline: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+}
+
+.toolui-col-xs12 {
+    width: 100%;
+}
+
+.toolui-col-xs1, .toolui-col-xs10, .toolui-col-xs11, .toolui-col-xs12, .toolui-col-xs2, .toolui-col-xs3, .toolui-col-xs4, .toolui-col-xs5, .toolui-col-xs6, .toolui-col-xs7, .toolui-col-xs8, .toolui-col-xs9 {
+    float: left;
+}
+
+.toolui-col-lg1, .toolui-col-lg10, .toolui-col-lg11, .toolui-col-lg12, .toolui-col-lg2, .toolui-col-lg3, .toolui-col-lg4, .toolui-col-lg5, .toolui-col-lg6, .toolui-col-lg7, .toolui-col-lg8, .toolui-col-lg9, .toolui-col-md1, .toolui-col-md10, .toolui-col-md11, .toolui-col-md12, .toolui-col-md2, .toolui-col-md3, .toolui-col-md4, .toolui-col-md5, .toolui-col-md6, .toolui-col-md7, .toolui-col-md8, .toolui-col-md9, .toolui-col-sm1, .toolui-col-sm10, .toolui-col-sm11, .toolui-col-sm12, .toolui-col-sm2, .toolui-col-sm3, .toolui-col-sm4, .toolui-col-sm5, .toolui-col-sm6, .toolui-col-sm7, .toolui-col-sm8, .toolui-col-sm9, .toolui-col-xs1, .toolui-col-xs10, .toolui-col-xs11, .toolui-col-xs12, .toolui-col-xs2, .toolui-col-xs3, .toolui-col-xs4, .toolui-col-xs5, .toolui-col-xs6, .toolui-col-xs7, .toolui-col-xs8, .toolui-col-xs9 {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+}
+
+.toolui-edge, .toolui-header, .toolui-inline, .toolui-main {
+    position: relative;
+}
+
+.toolui-bg-black, .toolui-bg-blue, .toolui-bg-cyan, .toolui-bg-green, .toolui-bg-orange, .toolui-bg-red {
+    color: #fff !important;
+}
+
+.toolui-body, .toolui-edge, .toolui-elip {
+    overflow: hidden;
+}
+
+.toolui-layout-body {
+    overflow: hidden;
+}
+
+.toolui-show {
+    display: block !important;
+}
+
+.toolui-hide {
+    visibility: hidden;
+}
+
+/*toolui-btn begin*/
+.toolui-btn {
+    display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 0 18px;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 14px;
+    background-color: #009688;
+    color: #fff;
+}
+
+.toolui-btn, .toolui-edge, .toolui-inline, img {
+    vertical-align: middle;
+}
+
+.toolui-btn, .toolui-disabled, .toolui-icon, .toolui-unselect {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.toolui-btn, .toolui-input, .toolui-select, .toolui-textarea, .toolui-upload-button {
+    -webkit-transition: all .3s;
+    box-sizing: border-box;
+    outline: 0;
+    -webkit-appearance: none;
+    transition: all .3s;
+}
+
+.toolui-input, .toolui-select, .toolui-textarea {
+    height: 38px;
+    line-height: 1.3;
+    line-height: 38px\9;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.toolui-input, .toolui-textarea {
+    display: block;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.toolui-input:hover, .toolui-textarea:hover {
+    border-color: #D2D2D2 !important;
+}
+    .toolui-btn + .toolui-btn {
+        margin-left: 10px;
+    }
+
+    .toolui-btn:hover {
+        opacity: .8;
+        filter: alpha(opacity=80);
+        color: #fff;
+    }
+
+.toolui-btn-container {
+    font-size: 0;
+}
+
+    .toolui-btn-container .toolui-btn {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+        .toolui-btn-container .toolui-btn + .toolui-btn {
+            margin-left: 0;
+        }
+
+.toolui-btn-normal {
+    background-color: #1E9FFF;
+}
+
+.toolui-btn-warm {
+    background-color: #FFB800;
+}
+
+.toolui-btn-danger {
+    background-color: #FF5722;
+}
+
+/*toolui-btn end*/
+
+/*toolui-table begin*/
+.toolui-table {
+    width: 100%;
+    background-color: #fff;
+    color: #666;
+}
+
+.toolui-table, .toolui-table-view {
+    /*margin: 10px 0;*/
+}
+
+    .toolui-table tbody tr:hover, .toolui-table thead tr, .toolui-table-click, .toolui-table-header, .toolui-table-hover, .toolui-table-mend, .toolui-table-patch, .toolui-table-tool, .toolui-table-total, .toolui-table-total tr, .toolui-table[lay-even] tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .toolui-table tr {
+        transition: all .3s;
+        -webkit-transition: all .3s;
+    }
+
+    .toolui-table th {
+        text-align: left;
+        font-weight: 400;
+    }
+
+    .toolui-table td, .toolui-table th, .toolui-table-col-set, .toolui-table-fixed-r, .toolui-table-grid-down, .toolui-table-header, .toolui-table-page, .toolui-table-tips-main, .toolui-table-tool, .toolui-table-total, .toolui-table-view, .toolui-table[toolui-skin=line], .toolui-table[toolui-skin=row] {
+        border-style: solid;
+        border-color: #e6e6e6;
+        border-width: 1px;
+    }
+
+    .toolui-table td, .toolui-table th, .toolui-table-col-set, .toolui-table-fixed-r, .toolui-table-grid-down, .toolui-table-header, .toolui-table-page, .toolui-table-tips-main, .toolui-table-tool, .toolui-table-total, .toolui-table-view, .toolui-table[toolui-skin=line], .toolui-table[toolui-skin=row] {
+        border-width: 1px;
+        border-style: solid;
+        border-color: #e6e6e6;
+    }
+
+        .toolui-table tbody tr:hover, .toolui-table thead tr, .toolui-table-click, .toolui-table-header, .toolui-table-hover, .toolui-table-mend, .toolui-table-patch, .toolui-table-tool, .toolui-table-total, .toolui-table-total tr, .toolui-table[toolui-even] tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+    .toolui-table td, .toolui-table th {
+        line-height: 20px;
+        font-size: 14px;
+        position: relative;
+        padding: 9px 15px;
+        min-height: 20px;
+    }
+
+    .toolui-table-cell, .toolui-table-tool-panel li {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .toolui-table-cell {
+        height: 28px;
+        line-height: 28px;
+        padding: 0 15px;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .toolui-table-edit {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0 14px 1px;
+        border-radius: 0;
+        box-shadow: 1px 1px 10px rgba(0,0,0,.15);
+    }
+
+    .toolui-table-edit:focus {
+        border-color: rgb(18,104,181) !important;
+    }
+/*toolui-table end*/
+
+/*toolui-header begin*/
+.toolui-header {
+    z-index: 1000;
+    height: 60px;
+}
+
+.toolui-layout-admin .toolui-header {
+    background-color: #23262E;
+}
+
+.toolui-layout-admin .toolui-logo {
+    text-align: center;
+    color: #009688;
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 200px;
+    line-height: 60px;
+}
+/*toolui-header end*/
+
+/*toolui-side begin*/
+.toolui-side {
+    position: fixed;
+    z-index: 999;
+    width: 200px;
+    overflow-x: hidden;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.toolui-bg-black {
+    background-color: #393D49 !important;
+}
+
+.toolui-layout-admin .toolui-side {
+    top: 60px;
+    width: 200px;
+    overflow-x: hidden;
+}
+
+
+.toolui-side-scroll {
+    position: relative;
+    width: 220px;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/*toolui-side nav begin*/
+.toolui-nav {
+    position: relative;
+    padding: 0 20px;
+    border-radius: 2px;
+    font-size: 0;
+    box-sizing: border-box;
+    background-color: #393D49;
+    color: #fff;
+}
+
+.toolui-nav-tree {
+    width: 200px;
+    padding: 0;
+}
+
+.toolui-nav * {
+    font-size: 14px;
+}
+
+
+.toolui-nav .toolui-nav-item {
+    position: relative;
+    vertical-align: middle;
+    line-height: 60px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.toolui-nav-tree .toolui-nav-item {
+    display: block;
+    width: 100%;
+    line-height: 45px;
+}
+
+    .toolui-nav-tree .toolui-nav-item a:hover {
+        background-color: #4E5465;
+    }
+
+
+.toolui-nav-itemed > a, .toolui-nav-tree .toolui-nav-title a, .toolui-nav-tree .toolui-nav-title a:hover {
+    color: #fff !important;
+}
+
+.toolui-nav .toolui-nav-item a {
+    display: block;
+    color: rgba(255,255,255,.7);
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    padding: 0 20px;
+    color: #fff;
+}
+
+.toolui-nav-tree .toolui-nav-item a {
+    position: relative;
+    height: 45px;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 45px;
+    text-overflow: ellipsis;
+}
+
+.toolui-nav .toolui-nav-more {
+    content: '';
+    width: 0;
+    border-color: #fff transparent transparent;
+    overflow: hidden;
+    cursor: pointer;
+    height: 0;
+    border-style: solid dashed dashed;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    margin-top: -3px;
+    border-width: 6px;
+    position: absolute;
+    top: 50%;
+    right: 3px;
+    border-top-color: rgba(255,255,255,.7);
+}
+
+.toolui-nav-tree .toolui-nav-more {
+    right: 10px;
+}
+
+.toolui-nav .toolui-nav-mored, .toolui-nav-itemed > a .toolui-nav-more {
+    margin-top: -9px;
+    border-style: dashed dashed solid;
+    border-color: transparent transparent #fff;
+}
+
+.toolui-nav-child {
+    display: none;
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    border-radius: 2px;
+    white-space: nowrap;
+    top: 65px;
+    min-width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,.12);
+    border: 1px solid #d2d2d2;
+    background-color: #fff;
+    line-height: 36px;
+    padding: 5px 0;
+}
+
+.toolui-nav-tree .toolui-nav-child {
+    position: relative;
+    border: none;
+    box-shadow: none;
+    z-index: 0;
+    top: 0;
+}
+
+    .toolui-nav-tree .toolui-nav-child, .toolui-nav-tree .toolui-nav-child a:hover {
+        background: 0 0;
+        color: #fff;
+    }
+
+.toolui-nav-itemed > .toolui-nav-child {
+    display: block;
+    padding: 0;
+    background-color: rgba(0,0,0,.3) !important;
+}
+
+.toolui-nav-child dd {
+    position: relative;
+}
+
+.toolui-nav .toolui-nav-child a {
+    color: #333;
+}
+
+.toolui-nav-tree .toolui-nav-child a {
+    color: #fff;
+    color: rgba(255,255,255,.7);
+    height: 40px;
+    line-height: 40px;
+}
+
+.toolui-nav .toolui-nav-child dd.toolui-this a, .toolui-nav-child dd.toolui-this {
+    background-color: #5FB878;
+    color: #fff;
+}
+
+.toolui-nav-tree .toolui-nav-child dd.toolui-this, .toolui-nav-tree .toolui-nav-child dd.toolui-this a, .toolui-nav-tree .toolui-this, .toolui-nav-tree .toolui-this > a, .toolui-nav-tree .toolui-this > a:hover {
+    background-color: #009688;
+    color: #fff;
+}
+
+.toolui-nav-bar {
+    z-index: 1000;
+}
+
+.toolui-nav-tree .toolui-nav-bar {
+    width: 5px;
+    height: 0;
+    background-color: #009688;
+}
+
+.toolui-nav .toolui-this:after, .toolui-nav-bar, .toolui-nav-tree .toolui-nav-itemed:after {
+    position: absolute;
+    left: 0;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    top: 0;
+    height: 5px;
+    width: 0;
+    background-color: #5FB878;
+}
+/*toolui-side nav end*/
+
+
+.toolui-nav .toolui-this:after, .toolui-nav-bar, .toolui-nav-tree .toolui-nav-itemed:after {
+    position: absolute;
+    left: 0;
+    background-color: #5FB878;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    top: 0;
+    width: 0;
+    height: 5px;
+}
+/*toolui-side end*/
+
+/*toolui-body*/
+.toolui-body {
+    position: absolute;
+    z-index: 998;
+    width: auto;
+    left: 200px;
+    right: 0;
+    top: 0;
+    overflow-y: auto;
+    box-sizing: border-box;
+    bottom: 0;
+}
+
+.toolui-layout-admin .toolui-body {
+    position: fixed;
+    top: 60px;
+    bottom: 44px;
+}
+
+.toolui-badge-rim, .toolui-colla-content, .toolui-colla-item, .toolui-collapse, .toolui-elem-field, .toolui-form-pane .toolui-form-item[pane], .toolui-form-pane .toolui-form-label, .toolui-input, .toolui-layedit, .toolui-layedit-tool, .toolui-quote-nm, .toolui-select, .toolui-tab-bar, .toolui-tab-card, .toolui-tab-title, .toolui-tab-title .toolui-this:after, .toolui-textarea {
+    border-color: #e6e6e6;
+}
+
+
+.toolui-tab {
+    margin: 10px 0;
+    text-align: left !important;
+}
+
+.toolui-tab-card {
+    /*border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    border-width: 1px;
+    border-style: solid; */
+    border-width: 1px;
+    border-bottom: 0px;
+    border-radius: 2px;
+    box-shadow: none;
+    border-style: solid;
+}
+
+.toolui-tab-title {
+    position: relative;
+    left: 0;
+    border-bottom-style: solid;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    height: 40px;
+    white-space: nowrap;
+    border-bottom-width: 1px;
+    font-size: 0;
+}
+
+.toolui-tab-card > .toolui-tab-title {
+    background-color: #f2f2f2;
+}
+
+    .toolui-tab-card > .toolui-tab-title .toolui-this:after {
+        border-bottom-color: #fff;
+        border-top: none;
+        border-width: 1px;
+    }
+
+.toolui-tab-title .toolui-this:after {
+    position: absolute;
+    left: 0;
+    border-width: 1px;
+    border-style: solid;
+    top: 0;
+    content: '';
+    width: 100%;
+    box-sizing: border-box;
+    pointer-events: none;
+    height: 41px;
+    border-bottom-color: #fff;
+    border-radius: 2px 2px 0 0;
+}
+
+.toolui-tab-title li {
+    display: inline-block;
+    *display: inline;
+    padding: 0 15px;
+    text-align: center;
+    cursor: pointer;
+    *zoom: 1;
+    vertical-align: middle;
+    font-size: 14px;
+    position: relative;
+    line-height: 40px;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    min-width: 65px;
+    pointer-events: none;
+    cursor: none;
+}
+
+.toolui-tab-card > .toolui-tab-title li {
+    margin-right: -1px;
+    margin-left: -1px;
+}
+
+.toolui-tab-title .toolui-this {
+    color: #000;
+}
+
+.toolui-tab-card > .toolui-tab-title li {
+    margin-right: -1px;
+    margin-left: -1px;
+}
+
+.toolui-tab-card > .toolui-tab-title .toolui-this {
+    background-color: #fff;
+    color: #000;
+}
+
+.toolui-tab-content {
+    padding: 10px;
+}
+
+.toolui-tab-item {
+    display: none;
+}
+
+.toolui-elem-quote {
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 0 2px 2px 0;
+    background-color: #f2f2f2;
+    line-height: 22px;
+    border-left: 5px solid #009688;
+}
+
+/*toolui-footer*/
+.toolui-layout-admin .toolui-footer {
+    position: fixed;
+    left: 200px;
+    line-height: 44px;
+    padding: 0 15px;
+    background-color: #eee;
+    right: 0;
+    bottom: 0;
+    height: 44px;
+}
+
+
+/*model dialog*/
+.toolui-layer-shade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 19891015;
+    padding-top: 10%;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #000;
+    background-color: rgba(0,0,0,0.5);
+    filter: alpha(opacity=50);
+}
+
+.toolui-layer {
+    width: 400px;
+    height: 180px;
+    margin-left: -250px;
+    margin-top: -150px;
+    background-color: #F2F2F2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 19891016;
+    border-radius: 2px;
+    box-shadow: 1px 1px 50px rgba(0,0,0,.3);
+}
+
+.toolui-layer-expand {
+    background-color: white;
+    margin: 10px;
+    margin-top:0px;
+    border-radius: 2px;
+}
+
+
+.toolui-layer, .toolui-layer-shade {
+    position: fixed;
+    _position: absolute;
+    pointer-events: auto;
+}
+
+
+.toolui-layer-imgbar, .toolui-layer-imgtit a, .toolui-layer-tab .toolui-layer-title span, .toolui-layer-title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.toolui-layer-title {
+    padding: 0 80px 0 20px;
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    font-weight: bold;
+    /*color: #333;*/
+    color: rgb(180,208,249);
+    overflow: hidden;
+    background-color: rgb(18,104,181);
+    /*background-color: #F8F8F8;*/
+    border-radius: 2px 2px 0 0;
+}
+
+.toolui-layer-content {
+    position: relative;
+    font-size: 20px;
+    height: 120px;
+    padding: 20px 20px;
+    color:black;
+}
+
+.toolui-layer-page .toolui-layer-content {
+    position: relative;
+    overflow: auto;
+} 
+
+
+
+.toolui-layer-btn {
+    text-align: right;
+    padding: 0 15px 12px;
+    pointer-events: auto;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.toolui-layer-btn a, .toolui-layer-dialog .toolui-layer-ico, .toolui-layer-setwin a {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+}
+
+.toolui-layer-btn a {
+    height: 28px;
+    line-height: 28px;
+    margin: 5px 5px 0;
+    padding: 0 15px;
+    border: 1px solid #dedede;
+    background-color: #fff;
+    color: #333;
+    border-radius: 2px;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.toolui-layer-btn .toolui-layer-btn0 {
+    border-color: #1E9FFF;
+    background-color: #1E9FFF;
+    color: #fff;
+}
+
+.toolui-layer-btn {
+    text-align: right;
+    padding: 0 15px 12px;
+    pointer-events: auto;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.toolui-success-icon {
+    background:  url(sig_suc_bg.png) no-repeat 1px 3px;
+}
+
+.toolui-fail-icon {
+    background:  url(sig_fail_bg.png) no-repeat 1px 3px;
+}

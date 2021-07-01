@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Li-Battery Tool</title>
+    <link rel="stylesheet" href="./toolui.css">
+</head>
+
+<body class="toolui-layout-body" oncontextmenu='return false' ondragstart='return false' onselectstart='return false'
+      onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false'>
+    <div class="toolui-layout toolui-layout-admin">
+        <div class="toolui-side toolui-bg-black" style="top: 0px;">
+            <div class="toolui-side-scroll">
+                <ul class="toolui-nav toolui-nav-tree">
+                    <li class="toolui-nav-item toolui-nav-itemed" id="side_nav_header">
+                        <dl class="toolui-nav-child" id="battery_name_list"></dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="toolui-body" style="top: 0px;">
+            <div class="toolui-tab toolui-tab-card" style="margin-top: 1px;">
+                <ul class="toolui-tab-title">
+                    <li class="toolui-this" id="tool_tab_title_text" disabled="disabled">Battery Overview</li>
+                </ul>
+                <div class="toolui-tab-content">
+                    <div class="toolui-tab-item toolui-show" id="battery_overview_content">
+                        <blockquote class="toolui-elem-quote" style="margin-top: 10px;">Main Information</blockquote>
+                        <table class="toolui-table" id="tb_battery_baseinfo">
+                            <colgroup>
+                                <col width="150">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Battery No.</th>
+                                    <th>Battery Voltage</th>
+                                    <th>Pack Voltage</th>
+                                    <th>Battery Current</th>
+                                    <th>Battery SOC</th>
+                                    <th>Battery SOH</th>
+                                    <th>Software Version</th>
+                                    <th>Battery Bar Code</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <blockquote class="toolui-elem-quote" style="margin-top: 10px;">Active Alarm</blockquote>
+                        <table class="toolui-table" id="tb_battery_alarm">
+                            <colgroup>
+                                <col width="150">
+                                <col width="150">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Battery No.</th>
+                                    <th>Battery Bar Code</th>
+                                    <th>Alarm Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="toolui-tab-item" id="battery_collect_info_content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="toolui-footer">
+            <span>Lithium Battery Maintenance Tool</span>
+            <span id="tool_tip_text" style="color: red; margin-left: 50px; font-weight: bold;"></span>
+            <span id="tool_curr_datetime" style=" font-size: 14px;float: right; font-weight: bold;"></span>
+        </div>
+    </div>
+
+    <div id="toolui_full_shade" class="toolui-layer-shade"></div>
+    <div id="model_shade_dialog" class="toolui-layer toolui-layer-page">
+        <div class="toolui-layer-title" style="cursor: move;">Information</div>
+        <div id="model_dialog_content" class="toolui-layer-content">It is connecting to the battery. Please wait a minute.</div>
+    </div>
+	<div id="model_shade_dialog_yes" class="toolui-layer toolui-layer-page" style="display:none;height:250px;width:480px;">
+        <div class="toolui-layer-title" style="cursor: move;">Information</div>
+        <div id="model_dialog_content_yes" class="toolui-layer-content"></div>
+       <div class="toolui-layer-btn toolui-layer-btn-">
+            <a class="toolui-layer-btn0" href="javascript:;" id="btn_rescan_action" onclick="Service_Method_2070(1)">Rescan Battery</a>
+            <a class="toolui-layer-btn0" href="javascript:;" id="btn_confirm_action" onclick="Service_Method_2070(0)">Confirm</a>
+        </div>
+    </div>
+    <script>
+        var currBatteryCode = -1;
+        var modelDialogShowFlag = 1;
+		var currBatteryStatus = 0;
+        window.onload = function () {
+            document.getElementById("tool_curr_datetime").innerText = (new Date()).Format("yyyy-MM-dd hh:mm:ss");
+            var timerCode = window.setInterval(function () {
+                document.getElementById("tool_curr_datetime").innerText = (new Date()).Format("yyyy-MM-dd hh:mm:ss");
+            }, 1000);
+        }
+
+        function removeClass(element, cla) {
+            var classVal = element.getAttribute("class");
+            if (classVal != null && classVal != undefined) {
+                classVal = classVal.replace("  ", " ");
+                var classList = classVal.split(" ");
+                classVal = "";
+                for (var i = 0; i < classList.length; i++) {
+                    if (cla != classList[i]) {
+                        classVal += classList[i] + " ";
+                    }
+                }
+
+                if (classVal.length > 0) {
+                    classVal = classVal.substr(0, classVal.length - 1);
+                }
+            }
+            if (classVal == " " || classVal == "") {
+                element.removeAttribute("class");
+            }
+            else {
+                element.setAttribute("class", classVal);
+            }
+        }
+
+        function addClass(element, cla) {
+            removeClass(element, cla);
+            var classVal = element.getAttribute("class");
+            if (classVal != null && classVal != undefined) {
+                classVal = classVal + " " + cla;
+                element.setAttribute("class", classVal);
+            }
+            else {
+                element.setAttribute("class", cla);
+            }
+        }
+
+        function Client_Method_2020(elementId, batteryCode) {
+            if (batteryCode < 0) return;
+            var queryResult = window.external.Server_Interface_2020(batteryCode);
+            var findElement = document.getElementById(elementId);
+            if (findElement != null && queryResult != null && queryResult != "") {
+                findElement.innerHTML = queryResult;
+            }
+
+            if (modelDialogShowFlag == 1) {
+                Service_Method_2050(0, "", "");
+                modelDialogShowFlag = 0;
+            }
+        }
+
+        function Service_Method_2030(batteryCode) {
+			var oldBatteryCode = currBatteryCode;
+            currBatteryCode = batteryCode;
+            if (currBatteryCode == -1) return;
+            if (currBatteryCode == 0) {
+                Client_Method_2020("battery_overview_content", 0);
+            }
+            else {
+                Client_Method_2020("battery_collect_info_content", currBatteryCode);
+            }
+			
+			if (oldBatteryCode == batteryCode) return;
+			
+			var ddChilds = document.getElementById('battery_name_list').getElementsByTagName('dd');
+            for (var i = 0; i < ddChilds.length; i++) {
+                ddChilds[i].removeAttribute("class");
+                if (ddChilds[i].getAttribute("hw-data-id") == batteryCode) {
+                    ddChilds[i].setAttribute("class", "toolui-this");
+                }
+            }
+			
+			if (oldBatteryCode > 0 && batteryCode > 0) {
+                return;
+            }
+
+            if (batteryCode == 0) {
+                document.getElementById('tool_tab_title_text').innerText = "Battery Overview";
+                removeClass(document.getElementById('battery_collect_info_content'), "toolui-show");
+                addClass(document.getElementById('battery_overview_content'), "toolui-show");
+            }
+            else {
+                document.getElementById('tool_tab_title_text').innerText = "Single Battery Information";
+                removeClass(document.getElementById('battery_overview_content'), "toolui-show");
+                addClass(document.getElementById('battery_collect_info_content'), "toolui-show");
+            }
+        }
+
+        function Service_Method_2050(showFlag, tipTitle, tipText) {
+            if (showFlag == 1) {
+                document.getElementById("toolui_full_shade").style.display = "block";
+                let modelDialog = document.getElementById("model_shade_dialog");
+                if (modelDialog != null || modelDialog != undefined) {
+                    document.getElementById("model_dialog_content").innerHTML = tipText;
+                    modelDialog.style.display = "block";
+                }
+            }
+            else {
+                document.getElementById("toolui_full_shade").style.display = "none";
+                document.getElementById("model_shade_dialog").style.display = "none";
+				document.getElementById("model_shade_dialog_yes").style.display = "none";
+            }
+        }
+		
+		function Service_Method_2060() {
+            if (!window.external.ChangeBattery(-1)) return;
+            modelDialogShowFlag = 1;
+            Service_Method_2050(1, "Information", "Collecting battery information ...");
+        }
+
+        function Service_Method_2080(batteryIndex, batteryStatus) {
+            currBatteryStatus = batteryStatus;
+            var tipInfoText = "Failed to communicate with battery, please check.";
+            if (batteryIndex != 0 && batteryIndex != -1) {
+                tipInfoText = "Failed to communicate with battery " + batteryIndex + ", please check";
+            }
+
+            var yesDialogStatus = document.getElementById("model_shade_dialog_yes").style.display;
+            if (yesDialogStatus == "block") return;
+            document.getElementById("toolui_full_shade").style.display = "block";
+            document.getElementById("model_shade_dialog_yes").style.display = "block";
+            document.getElementById("model_dialog_content_yes").innerHTML = tipInfoText;
+        }
+
+        function Service_Method_2070(rescanFlag) {
+            document.getElementById("toolui_full_shade").style.display = "none";
+            document.getElementById("model_shade_dialog_yes").style.display = "none";
+
+            if (!window.external.Server_Interface_2030(rescanFlag)) return;
+
+            modelDialogShowFlag = 1;
+            Service_Method_2050(1, "Information", "Collecting battery information ...");
+        }
+
+        function ChangeBattery(batteryCode) {
+            if (batteryCode == currBatteryCode) return;
+            if (!window.external.ChangeBattery(batteryCode)) return;
+            
+			if (currBatteryCode == -1) {
+                return;
+            }
+			
+            modelDialogShowFlag = 1;
+            Service_Method_2050(1, "Information", "Collecting battery information ...");
+        }
+
+        Date.prototype.Format = function (fmt) {
+            var o = {
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "h+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds(), //秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+    </script>
+</body>
+</html>
